@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Solarium 2</name>
+  <description>Solarium is a library for Solr. This package provides support for profiling queries executed with Solarium.</description>
+  <namespace>Solarium_</namespace>
+  <significant-calls>
+    <call>Solarium_Client::execute</call>
+  </significant-calls>
+  <counters>
+    <counter warning="20" critical="50">
+      <name>Solarium: Queries</name>
+      <call>Solarium\Core\Client\Client::execute</call>
+    </counter>
+  </counters>
+</package>
