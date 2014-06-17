@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Elasticsearch PHP</name>
+  <description>Performance analysis for the official Elasticsearch PHP library.</description>
+  <namespace>Elasticsearch\</namespace>
+  <significant-calls>
+    <call>Elasticsearch\Endpoints\AbstractEndpoint::performRequest</call>
+  </significant-calls>
+  <counters>
+    <counter>
+      <name>Elasticsearch: Queries executed</name>
+      <description>Number of Queries executed with Elasticsearch</description>
+      <call>Elasticsearch\Endpoints\AbstractEndpoint::performRequest</call>
+    </counter>
+  </counters>
+</package>

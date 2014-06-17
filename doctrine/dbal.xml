@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Doctrine DBAL</name>
+  <description>DBAL performance profile for Query execution and parameter/placeholder parsing.</description>
+  <namespace>Doctrine\DBAL\</namespace>
+  <significant-calls>
+    <call>Doctrine\DBAL\Connection::executeQuery</call>
+    <call>Doctrine\DBAL\Connection::executeUpdate</call>
+    <call>Doctrine\DBAL\SQLParserUtils::expandListParameters</call>
+    <call>Doctrine\DBAL\SQLParserUtils::getPlaceholderPositions</call>
+  </significant-calls>
+  <counters>
+    <counter warning="20" critical="100">
+      <name>Doctrine DBAL: SQL Queries</name>
+      <call>Doctrine\DBAL\Connection::exec</call>
+      <call>Doctrine\DBAL\Connection::query</call>
+      <call>Doctrine\DBAL\Connection::executeQuery</call>
+      <call>Doctrine\DBAL\Connection::executeUpdate</call>
+    </counter>
+  </counters>
+</package>

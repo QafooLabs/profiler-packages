@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Composer</name>
+  <description>Checks for performance impact of Composer autoloading</description>
+  <namespace>Composer\</namespace>
+  <significant-calls>
+    <call>Composer\Autoload\ClassLoader::findFile</call>
+  </significant-calls>
+  <counters>
+    <counter>
+      <name>Composer: Classes included</name>
+      <description>Number of classes the Composer autoloader included.</description>
+      <call>Composer\Autoload\ClassLoader::findFile</call>
+    </counter>
+  </counters>
+</package>

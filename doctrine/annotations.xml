@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Doctrine Annotations</name>
+  <description>Doctrine Annotation Docblock Parsing Library</description>
+  <namespace>Doctrine\Common\Annotations</namespace>
+  <significant-calls>
+    <call>Doctrine\Common\Annotations\DocParser::parse</call>
+  </significant-calls>
+  <counters>
+    <counter warning="1" critical="10">
+      <name>Docblocks parsed</name>
+      <description>Number of docblocks parsed by AnnotationParser</description>
+      <call>Doctrine\Common\Annotations\DocParser::parse</call>
+    </counter>
+    <counter>
+      <name>Docblocks Annotations Read</name>
+      <description>Number of annotations metadata that were read</description>
+      <call>Doctrine\Common\Annotations\AnnotationReader::getPropertyAnnotations</call>
+      <call>Doctrine\Common\Annotations\AnnotationReader::getClassAnnotations</call>
+      <call>Doctrine\Common\Annotations\AnnotationReader::getMethodAnnotations</call>
+    </counter>
+  </counters>
+</package>

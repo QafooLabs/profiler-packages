@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+    <name>ext/mysql</name>
+    <description>PHPs ext/mysql library for connecting to a MySQL database.</description>
+  <namespace>mysql_</namespace>
+  <significant-calls>
+    <call>mysql_connect</call>
+    <call>mysql_query</call>
+  </significant-calls>
+  <counters>
+    <counter warning="20" critical="50">
+      <name>MySQL: Queries</name>
+      <call>mysql_query</call>
+    </counter>
+    <counter warning="2" critical="5">
+      <name>MySQL: Connections</name>
+      <call>msyql_connect</call>
+    </counter>
+  </counters>
+</package>
+

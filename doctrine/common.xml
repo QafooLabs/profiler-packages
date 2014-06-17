@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Doctrine Common</name>
+  <description>Various checks for Doctrine\Common related performance bottlenecks.</description>
+  <namespace>Doctrine\Common\</namespace>
+  <significant-calls>
+    <call>Doctrine\Common\Proxy\ProxyGenerator::generateProxyClass</call>
+  </significant-calls>
+  <counters>
+    <counter critical="1" optimizable="true">
+      <name>Doctrine Common: Generated Proxies</name>
+      <description>Proxy classes generated and written to file during a request</description>
+      <call>Doctrine\Common\Proxy\ProxyGenerator::generateProxyClass</call>
+    </counter>
+  </counters>
+</package>

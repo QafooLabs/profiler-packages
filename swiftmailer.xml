@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Swiftmailer</name>
+  <description>Checks regarding swiftmailer performance</description>
+  <namespace>Swift_</namespace>
+  <significant-calls>
+    <call>Swift_Transport_AbstractSmtpTransport::executeCommand</call>
+  </significant-calls>
+</package>

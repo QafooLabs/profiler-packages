@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>PDO</name>
+  <description>PHPs internal database abstraction is analyzed with this package for number of queries and open connections.</description>
+  <namespace>PDO</namespace>
+  <significant-calls>
+    <call>PDO::__construct</call>
+    <call>PDO::query</call>
+    <call>PDO::exec</call>
+    <call>PDO::prepare</call>
+    <call>PDOStatement::execute</call>
+  </significant-calls>
+  <counters>
+    <counter warning="20" critical="50">
+      <name>PDO: Queries</name>
+      <call>PDO::query</call>
+      <call>PDO::exec</call>
+      <call>PDOStatement::execute</call>
+    </counter>
+    <counter warning="2" critical="5">
+      <name>PDO: Connections</name>
+      <call>PDO::__construct</call>
+    </counter>
+  </counters>
+</package>

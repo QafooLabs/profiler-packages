@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Doctrine ORM</name>
+  <description>Checks for significant calls related to UnitOfWork flush, hydration and DQL parsing.</description>
+  <namespace>Doctrine\ORM</namespace>
+  <significant-calls>
+    <call>Doctrine\ORM\EntityManager::flush</call>
+    <call>Doctrine\ORM\Internal\Hydration\AbstractHydrator::hydrateAll</call>
+  </significant-calls>
+  <counters>
+    <counter>
+      <name>Doctrine ORM: Entities created</name>
+      <description>Entities being created (both new and from identity map)</description>
+      <call>Doctrine\ORM\UnitOfWork::createEntity</call>
+    </counter>
+    <counter warning="1" critical="5" optimizable="true">
+      <name>Doctrine ORM: Entity Metadata parsed</name>
+      <description>Number of metadata for entity that had to be parsed and were not cached.</description>
+      <call>Doctrine\ORM\Mapping\ClassMetadataFactory::doLoadMetadata</call>
+    </counter>
+    <counter warning="2" critical="5">
+      <name>Doctrine ORM: UnitOfWork Flush</name>
+      <description>Number of times EntityManager#flush() is called</description>
+      <call>Doctrine\ORM\EntityManager::flush</call>
+    </counter>
+    <counter warning="1" critical="5" optimizable="true">
+      <name>Doctrine ORM: DQL Query Parsing</name>
+      <description>Number of times a DQL query was parsed and could not be retrieved from cache.</description>
+      <call>Doctrine\ORM\Query\Parser::parse</call>
+    </counter>
+    <counter warning="10" critical="25" optimizable="true">
+      <name>Doctrine ORM: Lazy loaded Proxies</name>
+      <description>Number of times lazy loading was triggered on a Proxy acting as Entity</description>
+      <call>Doctrine\ORM\Proxy\ProxyFactory::Doctrine\ORM\Proxy\{closure}</call>
+    </counter>
+  </counters>
+</package>

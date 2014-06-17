@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Predis</name>
+  <description>Predis Library is a PHP library to connect to Redis.</description>
+  <namespace>Predis\</namespace>
+  <significant-calls>
+    <call>Predis\Client::executeCommand</call>
+  </significant-calls>
+  <counters>
+    <counter>
+      <name>Predis: Database Calls</name>
+      <description>Read and Write calls to Redis database</description>
+      <call>Predis\Client::executeCommand</call>
+    </counter>
+  </counters>
+</package>

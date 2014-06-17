@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Symfony Framework (Full-Stack)</name>
+  <description>Checks for various signifcant methods that are used in the Symfony2 full stack.</description>
+  <namespace>Symfony\</namespace>
+  <significant-calls>
+    <call>Symfony\Component\EventDispatcher\EventDispatcher::dispatch</call>
+    <call>Symfony\Component\HttpKernel\Fragment\FragmentHandler::render</call>
+    <call>Symfony\Component\HttpKernel\Kernel::boot</call>
+    <call>Symfony\Component\DependencyInjection\Container::get</call>
+    <call>Symfony\Component\Security\Http\Firewall::onKernelRequest</call>
+    <call>Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest</call>
+  </significant-calls>
+  <counters>
+    <counter>
+      <name>Symfony Subrequests</name>
+      <description>Number of subrequest controllers</description>
+      <call>Symfony\Component\HttpKernel\Fragment\FragmentHandler::render</call>
+    </counter>
+    <counter>
+      <name>Symfony EventDispatcher: Listeners called</name>
+      <description>Number of events listeners that were called.</description>
+      <call-chain>Symfony\Component\EventDispatcher\EventDispatcher::doDispatch==&gt;call_user_func</call-chain>
+    </counter>
+    <counter>
+      <name>Symfony EventDispatcher: Events dispatched</name>
+      <description>Number of events that dispatched.</description>
+      <call>Symfony\Component\EventDispatcher\EventDispatcher::dispatch</call>
+    </counter>
+  </counters>
+</package>
