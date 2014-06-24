@@ -2,7 +2,7 @@
 <package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
   <name>Monolog</name>
   <description>Check for Monolog related bottlenecks when adding lines.</description>
-  <namespace>Monlog\</namespace>
+  <namespace>Monolog\</namespace>
   <significant-calls>
     <call>Monolog\Logger::addRecord</call>
   </significant-calls>
