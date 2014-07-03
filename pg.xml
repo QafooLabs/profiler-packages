@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+    <name>ext/pg</name>
+    <description>PHPs ext/pg library for connecting to a PostgreSQL database.</description>
+  <namespace>pg_</namespace>
+  <significant-calls>
+    <call>pg_connect</call>
+    <call>pg_query</call>
+    <call>pg_execute</call>
+  </significant-calls>
+  <counters>
+    <counter warning="20" critical="50">
+      <name>PostgreSQL: Queries</name>
+      <call>pg_query</call>
+      <call>pg_execute</call>
+    </counter>
+    <counter warning="2" critical="5">
+      <name>PostgreSQL: Connections</name>
+      <call>pg_connect</call>
+    </counter>
+  </counters>
+</package>
+
+
