@@ -10,6 +10,8 @@
     <call>mysqli::query</call>
     <call>mysqli_stmt::execute</call>
     <call>mysqli_stmt_execute</call>
+    <call>mysqli_stmt::prepare</call>
+    <call>mysqli_stmt_prepare</call>    
   </significant-calls>
   <counters>
     <counter warning="20" critical="50">
@@ -18,6 +20,8 @@
       <call>mysqli::query</call>
       <call>mysqli_stmt::execute</call>
       <call>mysqli_stmt_execute</call>
+      <call>mysqli_stmt::prepare</call>
+      <call>mysqli_stmt_prepare</call>          
     </counter>
     <counter warning="2" critical="5">
       <name>MySQLi: Connections</name>
