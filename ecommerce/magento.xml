@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
     <name>Magento</name>
+    <namespace>Mage_</namespace>
+    <namespace>Varien_</namespace>
     <description>Magento Ecommerce Platform related Performance information (v1.9)</description>
     <significant-calls>
         <call>Mage_Core_Model_App::_initModules</call>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+    <name>Oxid</name>
+    <namespace>ox</namespace>
+    <significant-calls>
+        <call>oxWidgetControl::start</call>
+        <call>oxShopControl::_runOnce</call>
+    </significant-calls>
+    <counters>
+        <counter>
+            <name>Oxid: Article Widgets rendered</name>
+            <call>oxwArticleBox::render</call>
+        </counter>
+        <counter>
+            <name>Oxid: CategoryTree rendered</name>
+            <call>oxwCategoryTree::render</call>
+        </counter>
+        <counter>
+            <name>Oxid: Generate SEO Link</name>
+            <call>oxArticle::getBaseSeoLink</call>
+        </counter>
+        <counter warning="1" critical="20">
+            <name>Oxid: Uncached SEO Link</name>
+            <call>oxSeoEncoder::_saveInCache</call>
+        </counter>
+    </counters>
+</package>

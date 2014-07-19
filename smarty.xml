@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Smarty</name>
+  <description>Smarty Template Engine related profiling checks.</description>
+  <namespace>Smarty</namespace>
+  <significant-calls>
+    <call>Smarty::fetch</call>
+    <call>Smarty::display</call>
+  </significant-calls>
+  <counters>
+    <counter critical="1">
+      <name>Smarty: Templates compiled</name>
+      <description>Number of templates that had to be compiled during the request and no caching was present.</description>
+      <call>Smarty::_compile_resource</call>
+    </counter>
+  </counters>
+</package>
