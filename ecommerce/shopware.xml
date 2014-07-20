@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+    <name>Shopware</name>
+    <namespace>Shopware</namespace>
+    <namespace>Enlight_</namespace>
+    <description>Shopware Ecommerce Performance Information</description>
+    <significant-calls>
+        <call>Shopware_Bootstrap::getResource</call>
+        <call>sArticles::sGetPromotionById</call>
+        <call>sArticles::sGetArticleById</call>
+        <call>sArticles::sGetArticleConfig</call>
+        <call>Shopware_Components_Search::search</call>
+        <call>sBasket::sGetBasket</call>
+        <call>sAdmin::sGetShippingcosts</call>
+        <call>sMarketing::sGetPremiums</call>
+        <call>sCategories::sGetCategoryContent</call>
+        <call>sCategories::sGetCategoriesByParent</call>
+    </significant-calls>
+    <counters>
+        <counter>
+            <name>Shopware: Get Resources</name>
+            <call>Shopware_Bootstrap::getResource</call>
+        </counter>
+        <counter>
+            <name>Shopware: Notify Event System (Enlight EventManager)</name>
+            <call>Enlight_Event_EventManager::notify</call>
+            <call>Enlight_Event_EventManager::notifyUntil</call>
+        </counter>
+        <counter>
+            <name>Shopware: Filter Event System (Enlight EventManager)</name>
+            <call>Enlight_Event_EventManager::filter</call>
+        </counter>
+        <counter>
+            <name>Shopware: Routing</name>
+            <call>Shopware_Plugins_Core_Router_Bootstrap::onRouteStartup</call>
+        </counter>
+        <counter>
+            <name>Shopware: Rendering Templates (Enlight ViewRenderer)</name>
+            <call>Enlight_Controller_Plugins_ViewRenderer_Bootstrap::onPostDispatch</call>
+        </counter>
+        <counter>
+            <name>Shopware: Generate Link</name>
+            <call>Enlight_Controller_Router_Default::assemble</call>
+        </counter>
+    </counters>
+</package>
