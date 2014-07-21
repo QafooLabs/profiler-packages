@@ -6,6 +6,8 @@
   <significant-calls>
     <call>mysqli_connect</call>
     <call>mysqli::__construct</call>
+    <call>mysqli::real_connect</call>
+    <call>mysqli_real_connect</call>
     <call>mysqli_query</call>
     <call>mysqli::query</call>
     <call>mysqli_stmt::execute</call>
@@ -27,6 +29,8 @@
       <name>MySQLi: Connections</name>
       <call>msyqli_connect</call>
       <call>mysqli::__construct</call>
+      <call>mysqli::real_connect</call>
+      <call>mysqli_real_connect</call>
     </counter>
   </counters>
 </package>
