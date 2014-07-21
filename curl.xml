@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+    <name>ext/curl</name>
+    <description>cURL PHP extension for making HTTP requests.</description>
+    <namespace>curl_</namespace>
+    <significant-calls>
+        <call>curl_exec</call>
+        <call>curl_multi_select</call>
+        <call>curl_multi_exec</call>
+    </significant-calls>
+    <counters>
+        <counter warning="20" critical="50">
+            <name>cURL: HTTP Requests</name>
+            <call>curl_exec</call>
+        </counter>
+        <counter>
+            <name>cURL: Async HTTP Requests</name>
+            <call>curl_multi_exec</call>
+        </counter>
+    </counters>
+</package>
