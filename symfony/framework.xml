@@ -10,6 +10,7 @@
     <call>Symfony\Component\DependencyInjection\Container::get</call>
     <call>Symfony\Component\Security\Http\Firewall::onKernelRequest</call>
     <call>Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest</call>
+    <call-pattern>*Controller::*Action</call-pattern>
   </significant-calls>
   <counters>
     <counter>
