@@ -18,14 +18,23 @@
       <call>Symfony\Component\HttpKernel\Fragment\FragmentHandler::render</call>
     </counter>
     <counter>
-      <name>Symfony EventDispatcher: Listeners called</name>
-      <description>Number of events listeners that were called.</description>
-      <call-chain>Symfony\Component\EventDispatcher\EventDispatcher::doDispatch==&gt;call_user_func</call-chain>
-    </counter>
-    <counter>
       <name>Symfony EventDispatcher: Events dispatched</name>
       <description>Number of events that dispatched.</description>
       <call>Symfony\Component\EventDispatcher\EventDispatcher::dispatch</call>
+    </counter>
+    <counter>
+        <name>Symfony Framework: Bundle and Container Bootstrapping</name>
+        <description>Time it took to boostrap the application.</description>
+        <call>Symfony\Component\HttpKernel\Kernel::boot</call>
+    </counter>
+    <counter critical="1">
+        <name>Symfony Config: Check for Fresh Configuration Files</name>
+        <description>Symfony uses a cache mechanisms that checks for freshness of files using filemtime. This should only ever be activated in development.</description>
+        <call>Symfony\Component\Config\ConfigCache::isFresh</call>
+    </counter>
+    <counter>
+        <name>Symfony Routing: Time to match the request to a route</name>
+        <call>Symfony\Component\HttpKernel\EventListener\RouterListener::onKernelRequest</call>
     </counter>
   </counters>
 </package>
