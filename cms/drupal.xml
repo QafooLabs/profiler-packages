@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+    <name>Drupal 7</name>
+    <namespace>drupal_</namespace>
+    <description>Drupal Content Management System</description>
+    <significant-calls>
+        <call>drupal_bootstrap</call>
+        <call>menu_execute_active_handler</call>
+        <call>menu_tree</call>
+        <call>drupal_alter</call>
+        <call>drupal_render_page</call>
+        <call>module_invoke</call>
+        <call>module_invoke_all</call>
+        <call>theme</call>
+    </significant-calls>
+    <counters>
+        <counter>
+            <name>Drupal: Hooks Triggered</name>
+            <call-chain>module_invoke==>call_user_func_array</call-chain>
+            <call-chain>module_invoke_all==>call_user_func_array</call-chain>
+        </counter>
+    </counters>
+</package>
