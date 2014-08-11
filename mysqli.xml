@@ -2,37 +2,36 @@
 <package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
     <name>ext/mysqli</name>
     <description>PHPs ext/mysqli library for connecting to a MySQL database.</description>
-  <namespace>mysql_</namespace>
-  <significant-calls>
-    <call>mysqli_connect</call>
-    <call>mysqli::__construct</call>
-    <call>mysqli::real_connect</call>
-    <call>mysqli_real_connect</call>
-    <call>mysqli_query</call>
-    <call>mysqli::query</call>
-    <call>mysqli_stmt::execute</call>
-    <call>mysqli_stmt_execute</call>
-    <call>mysqli_stmt::prepare</call>
-    <call>mysqli_stmt_prepare</call>    
-  </significant-calls>
-  <counters>
-    <counter warning="20" critical="50">
-      <name>MySQLi: Queries</name>
-      <call>mysqli_query</call>
-      <call>mysqli::query</call>
-      <call>mysqli_stmt::execute</call>
-      <call>mysqli_stmt_execute</call>
-      <call>mysqli_stmt::prepare</call>
-      <call>mysqli_stmt_prepare</call>          
-    </counter>
-    <counter warning="2" critical="5">
-      <name>MySQLi: Connections</name>
-      <call>msyqli_connect</call>
-      <call>mysqli::__construct</call>
-      <call>mysqli::real_connect</call>
-      <call>mysqli_real_connect</call>
-    </counter>
-  </counters>
+    <namespace>mysqli_</namespace>
+    <namespace>mysqli::</namespace>
+    <significant-calls>
+        <call>mysqli_connect</call>
+        <call>mysqli::__construct</call>
+        <call>mysqli::real_connect</call>
+        <call>mysqli_real_connect</call>
+        <call>mysqli_query</call>
+        <call>mysqli::query</call>
+        <call>mysqli_stmt::execute</call>
+        <call>mysqli_stmt_execute</call>
+        <call>mysqli_stmt::prepare</call>
+        <call>mysqli_stmt_prepare</call>    
+    </significant-calls>
+    <counters>
+        <counter warning="20" critical="50">
+            <name>MySQLi: Queries</name>
+            <call>mysqli_query</call>
+            <call>mysqli::query</call>
+            <call>mysqli_stmt::execute</call>
+            <call>mysqli_stmt_execute</call>
+            <call>mysqli_stmt::prepare</call>
+            <call>mysqli_stmt_prepare</call>          
+        </counter>
+        <counter warning="2" critical="5">
+            <name>MySQLi: Connections</name>
+            <call>msyqli_connect</call>
+            <call>mysqli::__construct</call>
+            <call>mysqli::real_connect</call>
+            <call>mysqli_real_connect</call>
+        </counter>
+    </counters>
 </package>
-
-
