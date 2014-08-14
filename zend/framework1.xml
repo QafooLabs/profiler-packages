@@ -33,10 +33,15 @@
       <description>Number of items retrieved from Zend_Config.</description>
       <call>Zend_Config::get</call>
     </counter>
-    <counter>
+    <counter critical="1">
       <name>Zend_Db_Table: Metadata generation</name>
       <description>Number of times metadata for a Zend_Db_Table based model had to be fetched</description>
       <call-pattern>Zend_Db_Adapter_*::describeTable</call-pattern>
+    </counter>
+    <counter critical="1">
+      <name>Zend_Server_Reflection: reflection calls e.g. during Zend_XmlRpc</name>
+      <description>Number of times Zend_Server_Reflection was used to introspect PHP code during the request</description>
+      <call-pattern>Zend_Server_Reflection*::*</call-pattern>
     </counter>
   </counters>
 </package>
