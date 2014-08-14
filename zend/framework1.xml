@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
+  <name>Zend Framework 1 (Full-Stack)</name>
+  <description>Checks for various signifcant methods that are used in the Zend Framework 1 framework.</description>
+  <namespace>Zend_</namespace>
+  <significant-calls>
+    <call>Zend_View_Helper_Partial::partial</call>
+    <call>Zend_Controller_Router_Route_Regex::match</call>
+    <call>Zend_Controller_Router_Route_Regex::assemble</call>
+    <call>Zend_Config_Json::__construct</call>
+    <call>Zend_Config_Ini::_parseIniFile</call>
+    <call>Zend_Config_Xml::__construct</call>
+    <call>Zend_Config_Yaml::__construct</call>
+    <call-pattern>Zend_Application*</call-pattern>
+    <call-pattern>Zend_Controller_Action_Helper_ActionStack::*</call-pattern>
+    <call-pattern>Zend_Loader*</call-pattern>
+    <call-pattern>Zend_Registry::*</call-pattern>
+    <call-pattern>*Controller::*Action</call-pattern>
+  </significant-calls>
+  <counters>
+    <counter>
+      <name>Zend_Application: resources bootstrapped</name>
+      <description>Number of resources bootstrapped by Zend_Application</description>
+      <call>Zend_Application_Bootstrap_Bootstrap::bootstrap</call>
+    </counter>
+    <counter critical="1">
+      <name>Zend_Controller_Router: Routes matched</name>
+      <description>Number of routes matched</description>
+      <call-pattern>Zend_Controller_Router_Route*::match</call-pattern>
+    </counter>
+    <counter>
+      <name>Zend_Config: Items retrieved</name>
+      <description>Number of items retrieved from Zend_Config.</description>
+      <call>Zend_Config::get</call>
+    </counter>
+    <counter critical="1">
+      <name>Zend_Db_Table: Metadata generation</name>
+      <description>Number of times metadata for a Zend_Db_Table based model had to be fetched</description>
+      <call-pattern>Zend_Db_Adapter_*::describeTable</call-pattern>
+    </counter>
+    <counter critical="1">
+      <name>Zend_Server_Reflection: reflection calls e.g. during Zend_XmlRpc</name>
+      <description>Number of times Zend_Server_Reflection was used to introspect PHP code during the request</description>
+      <call-pattern>Zend_Server_Reflection*::*</call-pattern>
+    </counter>
+  </counters>
+</package>
