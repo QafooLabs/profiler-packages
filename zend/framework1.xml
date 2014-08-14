@@ -4,16 +4,15 @@
   <description>Checks for various signifcant methods that are used in the Zend Framework 1 framework.</description>
   <namespace>Zend_</namespace>
   <significant-calls>
-    <call>Zend_Db_Table</call>
     <call>Zend_View_Helper_Partial::partial</call>
     <call>Zend_Controller_Router_Route_Regex::match</call>
     <call>Zend_Controller_Router_Route_Regex::assemble</call>
+    <call>Zend_Config_Json::__construct</call>
     <call>Zend_Config_Ini::_parseIniFile</call>
     <call>Zend_Config_Xml::__construct</call>
     <call>Zend_Config_Yaml::__construct</call>
     <call-pattern>Zend_Application*</call-pattern>
     <call-pattern>Zend_Controller_Action_Helper_ActionStack::*</call-pattern>
-    <call-pattern>Zend_Db_Adapter_*::describeTable</call-pattern>
     <call-pattern>Zend_Loader*</call-pattern>
     <call-pattern>Zend_Registry::*</call-pattern>
     <call-pattern>*Controller::*Action</call-pattern>
@@ -33,6 +32,11 @@
       <name>Zend_Config: Items retrieved</name>
       <description>Number of items retrieved from Zend_Config.</description>
       <call>Zend_Config::get</call>
+    </counter>
+    <counter>
+      <name>Zend_Db_Table: Metadata generation</name>
+      <description>Number of times metadata for a Zend_Db_Table based model had to be fetched</description>
+      <call-pattern>Zend_Db_Adapter_*::describeTable</call-pattern>
     </counter>
   </counters>
 </package>
