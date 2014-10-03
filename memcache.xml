@@ -11,4 +11,13 @@
       <call>MemcachePool::get</call>
     </counter>
   </counters>
+  <layer name="cache">
+    <call>MemcachePool::get</call>
+    <call>MemcachePool::set</call>
+    <call>MemcachePool::increment</call>
+    <call>MemcachePool::decrement</call>
+    <call>MemcachePool::delete</call>
+    <call>MemcachePool::replace</call>
+    <call>Memcache::connect</call>
+  </layer>
 </package>

@@ -19,6 +19,11 @@
       <call>pg_connect</call>
     </counter>
   </counters>
+  <layer name="db">
+      <call>pg_connect</call>
+      <call>pg_query</call>
+      <call>pg_execute</call>
+  </layer>
 </package>
 
 

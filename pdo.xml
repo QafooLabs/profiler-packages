@@ -22,4 +22,10 @@
       <call>PDO::__construct</call>
     </counter>
   </counters>
+  <layer name="db">
+      <call>PDO::__construct</call>
+      <call>PDO::query</call>
+      <call>PDO::exec</call>
+      <call>PDOStatement::execute</call>
+  </layer>
 </package>

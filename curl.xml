@@ -18,4 +18,9 @@
             <call>curl_multi_exec</call>
         </counter>
     </counters>
+    <layer name="http">
+        <call>curl_exec</call>
+        <call>curl_multi_select</call>
+        <call>curl_multi_exec</call>
+    </layer>
 </package>

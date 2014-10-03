@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
-  <name>Symfony Framework (Full-Stack)</name>
+  <name>Symfony2 Framework</name>
   <description>Checks for various signifcant methods that are used in the Symfony2 full stack.</description>
   <namespace>Symfony\</namespace>
   <significant-calls>
@@ -27,11 +27,6 @@
         <name>Symfony Framework: Bundle and Container Bootstrapping</name>
         <description>Time it took to boostrap the application.</description>
         <call>Symfony\Component\HttpKernel\Kernel::boot</call>
-    </counter>
-    <counter critical="1">
-        <name>Symfony Config: Check for Fresh Configuration Files</name>
-        <description>Symfony uses a cache mechanisms that checks for freshness of files using filemtime. This should only ever be activated in development.</description>
-        <call>Symfony\Component\Config\ConfigCache::isFresh</call>
     </counter>
     <counter>
         <name>Symfony Routing: Time to match the request to a route</name>
