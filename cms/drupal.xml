@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
     <name>Drupal 7</name>
-    <namespace>drupal_</namespace>
     <description>Drupal Content Management System</description>
+    <namespace>drupal_</namespace>
     <significant-calls>
         <call>drupal_bootstrap</call>
         <call>menu_execute_active_handler</call>

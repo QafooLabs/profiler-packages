@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
     <name>Shopware</name>
+    <description>Shopware Ecommerce Performance Information</description>
     <namespace>Shopware</namespace>
     <namespace>Enlight_</namespace>
-    <description>Shopware Ecommerce Performance Information</description>
     <significant-calls>
         <call>Shopware_Bootstrap::getResource</call>
         <call>sArticles::sGetPromotionById</call>
