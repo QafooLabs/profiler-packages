@@ -2,6 +2,7 @@
 <package xmlns="http://qafoolabs.com/schemas/profiler/package" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://qafoolabs.com/schemas/profiler/package https://qafoolabs.com/package.xml">
   <name>Memcache</name>
   <description>pecl/memcache performance information</description>
+  <namespace>Memcache</namespace>
   <significant-calls>
     <call>MemcachePool::get</call>
   </significant-calls>
