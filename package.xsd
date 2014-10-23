@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<xs:schema xmlns="http://qafoolabs.com/schemas/profiler/package"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://qafoolabs.com/schemas/profiler/package"
+    elementFormDefault="qualified">
+
+    <xs:element name="package">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+                <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <xs:element name="namespace" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
+                <xs:element name="significant-calls" type="SignificantCallsType" minOccurs="1" maxOccurs="1" />
+                <xs:element name="counters" type="CountersType" minOccurs="0" maxOccurs="1" />
+                <xs:element name="layer" type="LayerType" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="SignificantCallsType">
+        <xs:sequence>
+            <xs:element ref="CallElement" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="CallType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^()]+" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="CallElement" abstract="true" type="CallType" />
+    <xs:element name="call" substitutionGroup="CallElement" />
+    <xs:element name="call-pattern" substitutionGroup="CallElement" />
+    <xs:element name="call-chain" substitutionGroup="CallElement" />
+
+    <xs:complexType name="CountersType">
+        <xs:sequence>
+            <xs:element name="counter" type="CounterType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CounterType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element ref="CallElement" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="warning" type="xs:integer" />
+        <xs:attribute name="critical" type="xs:integer" />
+        <xs:attribute name="optimizable" type="xs:boolean" />
+    </xs:complexType>
+
+    <xs:complexType name="LayerType">
+        <xs:sequence>
+            <xs:element ref="CallElement" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+    </xs:complexType>
+
+</xs:schema>
