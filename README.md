@@ -7,3 +7,5 @@ Fork this repository to add or modify packages. Please only add pull requests
 for Open-Source libraries.
 
 The XML structure is defined and can be verified through the `package.xsd`.
+
+(c) Qafoo GmbH 2014-2015
