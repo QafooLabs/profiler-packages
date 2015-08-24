@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<xs:schema xmlns="http://qafoolabs.com/schemas/profiler/package"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://qafoolabs.com/schemas/profiler/package"
+    elementFormDefault="qualified">
+
+    <xs:element name="package">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Short name of the package -->
+                <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+                <!-- Description of what the package contains -->
+                <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1" />
+                <!-- An namespace defines a grouping prefix for the calls your
+                     package can collect. This is used e.g. in profile
+                     filtering to see the calls of the package. Namespaces are
+                     matched against the start of a call, so they can either be
+                     a real PHP namespace or a string prefix for function names --> 
+                <xs:element name="namespace" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
+                <!-- Collection of calls that should be listed prominently for
+                     your package. These can be calls which are most commonly
+                     slow or very often used. -->
+                <xs:element name="significant-calls" type="SignificantCallsType" minOccurs="1" maxOccurs="1" />
+                <!-- Counters define special calls that should be counted and
+                     can define alert levels for such. Typical examples are
+                     calls that produce IO, like database queries or reading
+                     files, so that you want to limit their number to a minimum. -->
+                <xs:element name="counters" type="CountersType" minOccurs="0" maxOccurs="1" />
+                <!-- You can assign calls to a specific layer, so that they are
+                     even grouped outside of your packages scope. -->
+                <xs:element name="layer" type="LayerType" minOccurs="0" maxOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- For any kind of call specification you can use
+         <call> - a full function call matching string
+         <call-pattern> - a file-system style pattern for calls using * wildcard
+         <call-chain> - a call chain like "foo==>bar" indicating that bar() must have been called by foo()
+         Note that with any kind of call definition you must obey the function parenthesis () -->
+    <xs:complexType name="SignificantCallsType">
+        <xs:sequence>
+            <xs:element ref="CallElement" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="CallType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^()]+" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="CallElement" abstract="true" type="CallType" />
+    <xs:element name="call" substitutionGroup="CallElement" />
+    <xs:element name="call-pattern" substitutionGroup="CallElement" />
+    <xs:element name="call-chain" substitutionGroup="CallElement" />
+
+    <!-- A <counter> consists of a <name>, an optional <description> and one or more call definitions (see above).
+         In addition, the <counter> can have the attributes
+         - warning the number of calls of this type in a request that leads to a warning
+         - critical corresponding number when the call count is considered critically high
+         - optimizable a boolean indicating that such calls can easily be optimized (default is false) -->
+    <xs:complexType name="CountersType">
+        <xs:sequence>
+            <xs:element name="counter" type="CounterType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CounterType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element ref="CallElement" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="warning" type="xs:integer" />
+        <xs:attribute name="critical" type="xs:integer" />
+        <xs:attribute name="optimizable" type="xs:boolean" />
+    </xs:complexType>
+
+    <!-- A <layer> must have a name (attribute) and can consist of any number of call definitions (see above). -->
+    <xs:complexType name="LayerType">
+        <xs:sequence>
+            <xs:element ref="CallElement" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" />
+    </xs:complexType>
+
+</xs:schema>
